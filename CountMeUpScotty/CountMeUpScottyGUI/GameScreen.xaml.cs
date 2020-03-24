@@ -23,5 +23,10 @@ namespace CountMeUpScottyGUI
         {
             InitializeComponent();
         }
+
+        private void startgame_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("startgame_Click is not implemented");
+        }
     }
 }
