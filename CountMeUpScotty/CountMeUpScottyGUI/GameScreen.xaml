@@ -62,7 +62,7 @@
             <TextBlock Text="+" Grid.Column="1" x:Name="operation" Style="{StaticResource challengeField}" />
             <TextBlock Text="23" Grid.Column="2" x:Name="rightValue" Style="{StaticResource challengeField}" />
             <TextBlock Text="=" Grid.Column="3" Style="{StaticResource challengeField}" />
-            <TextBox Text="?" Grid.Column="4" x:Name="solution" Style="{StaticResource inputFieldChallenge}"/>
+            <TextBox Text="?" Grid.Column="4" x:Name="solution" KeyDown="solution_KeyDown" Style="{StaticResource inputFieldChallenge}" />
 
         </Grid>
         

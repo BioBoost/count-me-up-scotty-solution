@@ -7,7 +7,7 @@ namespace CountMeUpScottyLibrary
 
     // Default constructor
     public SumChallenge() {
-      Random generator = new Random();
+      //Random generator = new Random();      // BUG - Too Fast - Same Seed
       left = generator.Next(0, 21);
       right = generator.Next(0, 21);
     }
@@ -64,5 +64,7 @@ namespace CountMeUpScottyLibrary
     private int right = 0;
     private int attempt = 0;
     private bool isSolved = false;
-  }
+
+    private static Random generator = new Random();
+    }
 }

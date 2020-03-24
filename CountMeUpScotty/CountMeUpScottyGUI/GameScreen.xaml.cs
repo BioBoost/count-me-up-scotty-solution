@@ -34,21 +34,43 @@ namespace CountMeUpScottyGUI
 
         private void startgame_Click(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine("Creating new game");
             game = new Game(player);
             startgame.Visibility = Visibility.Hidden;
             progressLabel.Text = $"You solved {game.GetCurrentChallengeNumber()} of {game.NumberOfChallenges()} challenges";
+            progress.Maximum = game.NumberOfChallenges();
             progress.Value = 0;
             PrepareNextChallenge();
         }
 
         private void PrepareNextChallenge()
         {
+            Console.WriteLine("Preparing next challenge");
             currentChallenge = game.NextChallenge();
             Console.WriteLine(currentChallenge);
             leftValue.Text = currentChallenge.LeftValue().ToString();
             rightValue.Text = currentChallenge.RightValue().ToString();
             solution.Text = "";
             solution.Focus();
+        }
+
+        private void solution_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return && solution.Text != "")
+            {
+                int userSolution = Convert.ToInt32(solution.Text);
+                currentChallenge.Solve(userSolution);
+                progress.Value++;
+                if (!game.IsFinished())
+                {
+                    PrepareNextChallenge();
+                }
+                else
+                {
+                    MessageBox.Show("You finished the game!", "Count Me Up Scotty");
+                    solution.IsEnabled = false;
+                }
+            }
         }
 
         // Attribute
