@@ -33,6 +33,16 @@ namespace CountMeUpScottyLibrary
       return score;
     }
 
+    public int NumberOfChallenges()
+    {
+      return challenges.Length;
+    }
+
+    public int GetCurrentChallengeNumber()
+    {
+      return currentChallenge;
+    }
+
     public string Overview() {
       string output = "Your challenge overview:\n";
       foreach(var challenge in challenges) {

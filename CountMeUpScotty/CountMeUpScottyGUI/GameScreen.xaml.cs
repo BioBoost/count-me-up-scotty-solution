@@ -35,6 +35,9 @@ namespace CountMeUpScottyGUI
         private void startgame_Click(object sender, RoutedEventArgs e)
         {
             game = new Game(player);
+            startgame.Visibility = Visibility.Hidden;
+            progressLabel.Text = $"You solved {game.GetCurrentChallengeNumber()} of {game.NumberOfChallenges()} challenges";
+            progress.Value = 0;
         }
 
         // Attribute
