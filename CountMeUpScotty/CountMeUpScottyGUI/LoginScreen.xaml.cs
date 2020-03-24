@@ -10,19 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace CountMeUpScottyGUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoginScreen.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginScreen : Window
     {
-        public MainWindow()
+        public LoginScreen()
         {
             InitializeComponent();
+        }
+
+        private void login_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("login_Click needs to be implemented!");
         }
     }
 }
