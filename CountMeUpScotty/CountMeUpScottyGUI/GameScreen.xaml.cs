@@ -15,19 +15,13 @@ using System.Windows.Shapes;
 namespace CountMeUpScottyGUI
 {
     /// <summary>
-    /// Interaction logic for LoginScreen.xaml
+    /// Interaction logic for GameScreen.xaml
     /// </summary>
-    public partial class LoginScreen : Window
+    public partial class GameScreen : Window
     {
-        public LoginScreen()
+        public GameScreen()
         {
             InitializeComponent();
-        }
-
-        private void login_Click(object sender, RoutedEventArgs e)
-        {
-            Console.WriteLine("login_Click needs to be implemented!");
-            new GameScreen().Show();
         }
     }
 }
