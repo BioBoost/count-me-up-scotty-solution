@@ -34,10 +34,11 @@ namespace CountMeUpScottyGUI
 
         private void startgame_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("startgame_Click is not implemented");
+            game = new Game(player);
         }
 
         // Attribute
         private Player player = null;
+        private Game game = null;
     }
 }
