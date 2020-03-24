@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountMeUpScotty", "CountMeU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountMeUpScottyLibrary", "CountMeUpScottyLibrary\CountMeUpScottyLibrary.csproj", "{55E31C0A-D214-422B-9ACD-1B708E978EED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountMeUpScottyGUI", "CountMeUpScottyGUI\CountMeUpScottyGUI.csproj", "{B2B55B85-F3C0-4139-B3F8-3EF1EAE67229}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{55E31C0A-D214-422B-9ACD-1B708E978EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55E31C0A-D214-422B-9ACD-1B708E978EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55E31C0A-D214-422B-9ACD-1B708E978EED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2B55B85-F3C0-4139-B3F8-3EF1EAE67229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2B55B85-F3C0-4139-B3F8-3EF1EAE67229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2B55B85-F3C0-4139-B3F8-3EF1EAE67229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2B55B85-F3C0-4139-B3F8-3EF1EAE67229}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
