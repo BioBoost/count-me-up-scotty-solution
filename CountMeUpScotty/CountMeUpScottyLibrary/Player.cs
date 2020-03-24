@@ -1,4 +1,5 @@
-namespace CountMeUpScotty {
+namespace CountMeUpScottyLibrary
+{
   public class Player {
 
     // Non-default constructor

@@ -1,6 +1,7 @@
 using System;
 
-namespace CountMeUpScotty {
+namespace CountMeUpScottyLibrary
+{
 
   public class SumChallenge {
 
