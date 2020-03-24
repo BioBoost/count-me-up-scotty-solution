@@ -67,8 +67,9 @@ namespace CountMeUpScottyGUI
                 }
                 else
                 {
-                    MessageBox.Show("You finished the game!", "Count Me Up Scotty");
+                    MessageBox.Show($"You finished the game!", "Count Me Up Scotty");
                     solution.IsEnabled = false;
+                    progressLabel.Text = $"Your score is {game.Score()}";
                 }
             }
         }
