@@ -34,7 +34,7 @@
             <Button Content="Login" Name="login" Click="login_Click" Margin="70 30" Padding="3" FontSize="24"  FontFamily="Stencil" IsDefault="True" />
         </StackPanel>
 
-        <TextBlock Text="When numbers keeps you awake at night" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" FontFamily="Tempus Sans ITC" />
+        <TextBlock Text="When numbers keep you awake at night" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" FontFamily="Tempus Sans ITC" />
     </Grid>
     
 </Window>
