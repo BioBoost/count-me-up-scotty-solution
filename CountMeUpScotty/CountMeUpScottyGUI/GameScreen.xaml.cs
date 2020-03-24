@@ -38,10 +38,22 @@ namespace CountMeUpScottyGUI
             startgame.Visibility = Visibility.Hidden;
             progressLabel.Text = $"You solved {game.GetCurrentChallengeNumber()} of {game.NumberOfChallenges()} challenges";
             progress.Value = 0;
+            PrepareNextChallenge();
+        }
+
+        private void PrepareNextChallenge()
+        {
+            currentChallenge = game.NextChallenge();
+            Console.WriteLine(currentChallenge);
+            leftValue.Text = currentChallenge.LeftValue().ToString();
+            rightValue.Text = currentChallenge.RightValue().ToString();
+            solution.Text = "";
+            solution.Focus();
         }
 
         // Attribute
         private Player player = null;
         private Game game = null;
+        private SumChallenge currentChallenge = null;
     }
 }

@@ -12,6 +12,16 @@ namespace CountMeUpScottyLibrary
       right = generator.Next(0, 21);
     }
 
+    public int LeftValue()
+    {
+        return left;
+    }
+
+    public int RightValue()
+    {
+        return right;
+    }
+
     public void Solve(int result) {
       attempt = result;
       isSolved = true;
