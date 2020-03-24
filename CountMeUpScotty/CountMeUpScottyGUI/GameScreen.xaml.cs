@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CountMeUpScottyLibrary;
 
 namespace CountMeUpScottyGUI
 {
@@ -19,14 +20,24 @@ namespace CountMeUpScottyGUI
     /// </summary>
     public partial class GameScreen : Window
     {
-        public GameScreen()
+        public GameScreen(string nickname)
         {
             InitializeComponent();
+            CreatePlayer(nickname);
+        }
+
+        private void CreatePlayer(string nickname)
+        {
+            player = new Player(nickname);
+            welcome.Text = $"Welcome {nickname}. Hit Start to begin.";
         }
 
         private void startgame_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("startgame_Click is not implemented");
         }
+
+        // Attribute
+        private Player player = null;
     }
 }

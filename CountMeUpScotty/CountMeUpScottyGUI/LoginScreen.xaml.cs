@@ -27,7 +27,17 @@ namespace CountMeUpScottyGUI
         private void login_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("login_Click needs to be implemented!");
-            new GameScreen().Show();
+            if (nickname.Text == "")
+            {
+                MessageBox.Show("Please enter a nickname", "Count Me Up Scotty");
+                nickname.Focus();
+            }
+            else
+            {
+                GameScreen gamescreen = new GameScreen(nickname.Text);
+                gamescreen.Show();
+                this.Close();
+            }
         }
     }
 }

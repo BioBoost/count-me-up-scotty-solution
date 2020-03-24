@@ -100,5 +100,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CountMeUpScottyLibrary\CountMeUpScottyLibrary.csproj">
+      <Project>{55e31c0a-d214-422b-9acd-1b708e978eed}</Project>
+      <Name>CountMeUpScottyLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
