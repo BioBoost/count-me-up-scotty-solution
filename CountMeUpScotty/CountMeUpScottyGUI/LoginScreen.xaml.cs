@@ -14,11 +14,10 @@ using System.Windows.Shapes;
 
 namespace CountMeUpScottyGUI
 {
-    /// <summary>
-    /// Interaction logic for LoginScreen.xaml
-    /// </summary>
     public partial class LoginScreen : Window
     {
+        private static string ANONYMOUS = "Anonymous";
+
         public LoginScreen()
         {
             InitializeComponent();
@@ -26,7 +25,7 @@ namespace CountMeUpScottyGUI
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            if (nickname.Text == "" || nickname.Text == "Anonymous")
+            if (nickname.Text == "" || nickname.Text == ANONYMOUS)
             {
                 MessageBox.Show("Please enter a nickname", "Count Me Up Scotty");
                 nickname.Focus();
@@ -36,6 +35,14 @@ namespace CountMeUpScottyGUI
                 GameScreen gamescreen = new GameScreen(nickname.Text);
                 gamescreen.Show();
                 this.Close();
+            }
+        }
+
+        private void nickname_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (nickname.Text == ANONYMOUS)
+            {
+                nickname.Text = "";
             }
         }
     }

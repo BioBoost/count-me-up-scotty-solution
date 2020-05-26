@@ -51,7 +51,7 @@
         <!-- Content -->
         <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
             <TextBlock Text="Please provide a Nickname" FontSize="16" FontFamily="Palatino Linotype" Margin="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
-            <TextBox x:Name="nickname" Text="Anonymous" Margin="70 10" Padding="5" FontFamily="Elephant" FontSize="24" HorizontalContentAlignment="Center" Background="#eee8d5"/>
+            <TextBox x:Name="nickname" Text="Anonymous" Margin="70 10" Padding="5" FontFamily="Elephant" FontSize="24" HorizontalContentAlignment="Center" Background="#eee8d5" GotFocus="nickname_GotFocus"/>
             
             <Button Content="Login"
                     Name="Login" Click="Login_Click"
