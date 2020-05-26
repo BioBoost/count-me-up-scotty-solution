@@ -26,7 +26,7 @@ namespace CountMeUpScottyGUI
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            if (nickname.Text == "")
+            if (nickname.Text == "" || nickname.Text == "Anonymous")
             {
                 MessageBox.Show("Please enter a nickname", "Count Me Up Scotty");
                 nickname.Focus();
