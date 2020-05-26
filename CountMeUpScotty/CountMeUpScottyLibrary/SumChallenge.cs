@@ -2,69 +2,83 @@ using System;
 
 namespace CountMeUpScottyLibrary
 {
-
-  public class SumChallenge {
-
-    // Default constructor
-    public SumChallenge() {
-      //Random generator = new Random();      // BUG - Too Fast - Same Seed
-      left = generator.Next(0, 21);
-      right = generator.Next(0, 21);
-    }
-
-    public int LeftValue()
+    public class SumChallenge
     {
-        return left;
-    }
-
-    public int RightValue()
-    {
-        return right;
-    }
-
-    public void Solve(int result) {
-      attempt = result;
-      isSolved = true;
-    }
-
-    private int Solution() {
-      return left + right;
-    }
-
-    public bool IsCorrectlySolved() {
-      return Solution() == attempt;
-    }
-
-    public int Score() {
-      if (IsCorrectlySolved()) {
-        return 1;
-      } else {
-        return 0;
-      }
-    }
-
-    public override string ToString() {
-      string output = $"{left} + {right} = ";
-
-      if (!isSolved) {
-        output += "?";
-      } else {
-        if (IsCorrectlySolved()) {
-          output += $"{attempt} [V]";
-        } else {
-          output += $"{attempt} [X {Solution()}]";
+        // Default constructor
+        public SumChallenge()
+        {
+            //Random generator = new Random();      // BUG - Too Fast - Same Seed
+            left = generator.Next(0, 21);
+            right = generator.Next(0, 21);
         }
-      }
 
-      return output;
-    }
+        public int LeftValue()
+        {
+            return left;
+        }
 
-    // Attributes
-    private int left = 0;
-    private int right = 0;
-    private int attempt = 0;
-    private bool isSolved = false;
+        public int RightValue()
+        {
+            return right;
+        }
 
-    private static Random generator = new Random();
+        public void Solve(int result)
+        {
+            attempt = result;
+            isSolved = true;
+        }
+
+        private int Solution()
+        {
+            return left + right;
+        }
+
+        public bool IsCorrectlySolved()
+        {
+            return Solution() == attempt;
+        }
+
+        public int Score()
+        {
+            if (IsCorrectlySolved())
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public override string ToString()
+        {
+            string output = $"{left} + {right} = ";
+
+            if (!isSolved)
+            {
+                output += "?";
+            }
+            else
+            {
+                if (IsCorrectlySolved())
+                {
+                    output += $"{attempt} [V]";
+                }
+                else
+                {
+                    output += $"{attempt} [X {Solution()}]";
+                }
+            }
+
+            return output;
+        }
+
+        // Attributes
+        private int left = 0;
+        private int right = 0;
+        private int attempt = 0;
+        private bool isSolved = false;
+
+        private static Random generator = new Random();
     }
 }
