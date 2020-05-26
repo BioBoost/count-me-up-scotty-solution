@@ -24,9 +24,8 @@ namespace CountMeUpScottyGUI
             InitializeComponent();
         }
 
-        private void login_Click(object sender, RoutedEventArgs e)
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("login_Click needs to be implemented!");
             if (nickname.Text == "")
             {
                 MessageBox.Show("Please enter a nickname", "Count Me Up Scotty");

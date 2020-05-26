@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CountMeUpScottyGUI"
         mc:Ignorable="d"
-        Title="Welcome to Count Me Up Scotty"
+        Title="Count Me Up Scotty - Please Login"
         Height="440" Width="600" MinHeight="400" MinWidth="600"
         WindowStartupLocation="CenterScreen"
         Background="#002b36" Foreground="#fdf6e3" >
@@ -39,14 +39,17 @@
         </Grid.RowDefinitions>
 
         <!--Title-->
-        <TextBlock Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="0"
-                   Text="Count Me Up Scotty" 
-                   TextAlignment="Center" VerticalAlignment="Center"
-                   FontSize="48" FontFamily="Stencil"
-                   Background="#657b83" />
+        <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0"
+                   Background="#657b83">
 
-        <!--Welcome message-->
-        <StackPanel Grid.Column="1" Grid.Row="2">
+            <TextBlock Text="Count Me Up Scotty" 
+                   TextAlignment="Center" 
+                   FontSize="48" FontFamily="Stencil"
+                   Margin="10" />
+        </Grid>
+
+        <!-- Content -->
+        <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
             <TextBlock Style="{StaticResource paragraph}">
                 Welcome to Count Me Up Scotty - Your next-gen arithmetic stimulis tool.
             </TextBlock>
@@ -54,10 +57,10 @@
                 Challenge your kids to sharpen their math skills by taking each other on in this math adventure.
             </TextBlock>
             <TextBlock  Style="{StaticResource paragraph}">
-                The difficulty of the challenges can be tailored to the current skill of your child.
+                The difficulty of the challenges can be tailored to the current skills of your child.
             </TextBlock>
             <TextBlock  Style="{StaticResource paragraph}">
-                Scores are kept between different game sessions and can be cleared at any time in the game menu.
+                Scores are kept between different game sessions and can be cleared at any time.
             </TextBlock>
             <Button Content="Click to continue" Name="Continue" Click="Continue_Click"
                     Padding="3" FontSize="24" FontFamily="Stencil" IsDefault="True"
@@ -65,11 +68,14 @@
         </StackPanel>
 
         <!--Footer-->
-        <TextBlock Grid.Column="1" Grid.Row="3"
-                   Margin="5"
-                   Text="When numbers keep you awake at night" 
-                   TextAlignment="Center" Foreground="#cb4b16"
+        <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="3"
+                   Background="#657b83">
+
+            <TextBlock Text="When numbers keep you awake at night" 
+                   TextAlignment="Center" Background="#657b83"
+                   Margin="1"
                    FontStyle="Italic" FontFamily="Tempus Sans ITC" />
-        
+        </Grid>
+
     </Grid>
 </Window>

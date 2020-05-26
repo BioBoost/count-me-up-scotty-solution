@@ -5,36 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CountMeUpScottyGUI"
         mc:Ignorable="d"
-        Title="Count Me Up Scotty - Login" Height="450" Width="800" Background="#002b36" Foreground="#fdf6e3" >
+        Title="Count Me Up Scotty - Please Login"
+        Height="440" Width="600" MinHeight="400" MinWidth="600"
+        WindowStartupLocation="CenterScreen"
+        Background="#002b36" Foreground="#fdf6e3" >
+
+    <Window.Resources>
+        <Style TargetType="TextBlock" x:Key="paragraph">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Margin" Value="20" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontFamily" Value="Stencil" />
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="100" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="4*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="100" />
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="5*" />
-            <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
+        <!--Title-->
+        <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0"
+                   Background="#657b83">
 
-        <TextBlock Text="Count Me Up Scotty" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="1" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Stencil" />
+            <TextBlock Text="Count Me Up Scotty" 
+                   TextAlignment="Center" 
+                   FontSize="48" FontFamily="Stencil"
+                   Margin="10" />
+        </Grid>
 
-        <StackPanel Grid.Column="2" Grid.Row="3">
+        <!-- Content -->
+        <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
             <TextBlock Text="Please provide a Nickname" FontSize="16" FontFamily="Palatino Linotype" Margin="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
             <TextBox x:Name="nickname" Text="Anonymous" Margin="70 10" Padding="5" FontFamily="Elephant" FontSize="24" HorizontalContentAlignment="Center" Background="#eee8d5"/>
-            <Button Content="Login" Name="login" Click="login_Click" Margin="70 30" Padding="3" FontSize="24"  FontFamily="Stencil" IsDefault="True" />
+            
+            <Button Content="Login"
+                    Name="Login" Click="Login_Click"
+                    Margin="70 30" Padding="3"
+                    FontSize="24" FontFamily="Stencil"
+                    IsDefault="True" />
         </StackPanel>
 
-        <TextBlock Text="When numbers keep you awake at night" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" FontFamily="Tempus Sans ITC" />
+        <!--Footer-->
+        <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="3"
+                   Background="#657b83">
+
+            <TextBlock Text="When numbers keep you awake at night" 
+                   TextAlignment="Center" Background="#657b83"
+                   Margin="1"
+                   FontStyle="Italic" FontFamily="Tempus Sans ITC" />
+        </Grid>
+
     </Grid>
-    
 </Window>
