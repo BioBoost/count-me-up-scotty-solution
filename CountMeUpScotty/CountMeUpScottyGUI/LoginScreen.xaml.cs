@@ -21,6 +21,7 @@ namespace CountMeUpScottyGUI
         public LoginScreen()
         {
             InitializeComponent();
+            LoadNickname();     // Special Thanks to Henry Buysschaert for this tip!
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -32,6 +33,11 @@ namespace CountMeUpScottyGUI
             }
             else
             {
+                if (rememberMe.IsChecked == true)
+                {
+                    SaveNickname();
+                }
+
                 GameScreen gamescreen = new GameScreen(nickname.Text);
                 gamescreen.Show();
                 this.Close();
@@ -44,6 +50,21 @@ namespace CountMeUpScottyGUI
             {
                 nickname.Text = "";
             }
+        }
+
+        private void LoadNickname()
+        {
+            if (Properties.Settings.Default.Nickname != string.Empty)
+            {
+                nickname.Text = Properties.Settings.Default.Nickname;
+                rememberMe.IsChecked = true;
+            }
+        }
+
+        private void SaveNickname()
+        {
+            Properties.Settings.Default.Nickname = nickname.Text;
+            Properties.Settings.Default.Save();
         }
     }
 }

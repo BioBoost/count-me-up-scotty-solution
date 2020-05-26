@@ -58,6 +58,9 @@
                     Margin="70 30" Padding="3"
                     FontSize="24" FontFamily="Stencil"
                     IsDefault="True" />
+
+            <!--Special Thanks to Henry Buysschaert for this tip!-->
+            <CheckBox x:Name="rememberMe" Content="Remember Me" FontSize="14" Foreground="#fdf6e3" HorizontalAlignment="Center" Margin="4" />
         </StackPanel>
 
         <!--Footer-->
