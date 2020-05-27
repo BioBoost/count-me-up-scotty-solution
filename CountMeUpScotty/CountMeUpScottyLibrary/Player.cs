@@ -2,14 +2,13 @@ namespace CountMeUpScottyLibrary
 {
     public class Player
     {
-
         // Non-default constructor
         public Player(string name)
         {
-            this.name = name;
+            Name = name;
         }
 
-        // Attributes
-        private string name = "";
+        // Properties
+        public string Name { get; set; }
     }
 }

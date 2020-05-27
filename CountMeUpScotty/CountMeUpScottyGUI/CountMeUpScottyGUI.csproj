@@ -77,10 +77,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GameScreenOld.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="InfoScreens\CountDownTimerInfoScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -100,9 +96,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="GameScreenOld.xaml.cs">
-      <DependentUpon>GameScreenOld.xaml</DependentUpon>
     </Compile>
     <Page Include="WelcomeScreen.xaml">
       <SubType>Designer</SubType>

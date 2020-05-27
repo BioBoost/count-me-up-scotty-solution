@@ -35,33 +35,112 @@
                    Margin="10" />
         </Grid>
 
+        <!--Progress-->
         <Grid Grid.Row="2" Grid.Column="0">
             <ProgressBar
                 Background="#eee8d5"
-                Foreground="#dc322f"
+                Foreground="#859900"
                 Margin="24"
                 Orientation="Vertical"
-                Value="30" x:Name="countDownProgress" />
-
-            <TextBlock Text="12"
-                       Foreground="Black"
-                       FontSize="24" FontWeight="Heavy"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       x:Name="countDownLabel" />
+                Value="30" x:Name="progressChallenges" />
         </Grid>
 
         <!-- Content -->
         <Grid Grid.Column="1" Grid.Row="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="20" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="20" />
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Style="{StaticResource paragraph}">
-                Content
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="20" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5"
+                       TextAlignment="Center"
+                       x:Name="info"
+                       Style="{StaticResource paragraph}">
+                Click Start Game to start ripping throught the challenges. Once started
+                just type the solution and hit ENTER to confirm.
             </TextBlock>
 
+            <Rectangle Grid.Row="2" Grid.Column="1"
+                       Fill="#657b83"
+                       RadiusX="10" RadiusY="10"
+                       StrokeThickness="4" Stroke="#fdf6e3" />
+
+            <TextBlock Grid.Row="2" Grid.Column="1"
+                       Text="12"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       x:Name="leftValue" FontWeight="ExtraBold"
+                       FontSize="48"
+                       />
+
+            <TextBlock Grid.Row="2" Grid.Column="2"
+                       Text="+"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       x:Name="operator" FontWeight="ExtraBold"
+                       FontSize="48"
+                       />
+
+            <Rectangle Grid.Row="2" Grid.Column="3"
+                       Fill="#657b83"
+                       RadiusX="10" RadiusY="10"
+                       StrokeThickness="4" Stroke="#fdf6e3" />
+
+            <TextBlock Grid.Row="2" Grid.Column="3"
+                       Text="12"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       x:Name="rightValue" FontWeight="ExtraBold"
+                       FontSize="48"
+                       />
+
+            <TextBlock Grid.Row="2" Grid.Column="4"
+                       Text="="
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontWeight="ExtraBold"
+                       FontSize="48"
+                       />
+
+            <Rectangle Grid.Row="2" Grid.Column="5"
+                       Fill="#657b83"
+                       RadiusX="10" RadiusY="10"
+                       StrokeThickness="4" Stroke="#fdf6e3" />
+
+            <TextBox Grid.Row="2" Grid.Column="5"
+                       x:Name="userSolution"
+                       Background="{x:Null}" BorderBrush="{x:Null}"
+                       FontWeight="ExtraBold"
+                       IsEnabled="False"
+                       FontSize="48" Foreground="#fdf6e3"
+                       VerticalContentAlignment="Center"
+                       TextAlignment="Center" KeyDown="userSolution_KeyDown"
+                       CaretBrush="#FF268BD2" BorderThickness="0"
+                       MaxLength="3"
+                        />
+           
+            <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5"
+                       TextAlignment="Center"
+                       VerticalAlignment="Bottom"
+                       x:Name="warning"
+                       Style="{StaticResource paragraph}">
+                If at any time you feel overwhelmed just smash the stop button and you will
+                be taken back to reality. Of course this will cost you your score.
+            </TextBlock>
+            
         </Grid>
 
         <!--Navigation-->
@@ -70,8 +149,8 @@
                     HorizontalAlignment="Center">
 
             <Button
-                x:Name="Start" Content="Start Game"
-                VerticalAlignment="Center" />
+                x:Name="StartStop" Content="Start Game"
+                VerticalAlignment="Center" Click="StartStop_Click" />
         </StackPanel>
 
         <Button Grid.Column="2" Grid.Row="3"
@@ -91,6 +170,23 @@
             <Image Source="/images/settings.png" Stretch="Uniform" />
 
         </Button>
+
+        <!--CountDown-->
+        <Grid Grid.Row="2" Grid.Column="2">
+            <ProgressBar
+                Background="#eee8d5"
+                Foreground="#dc322f"
+                Margin="24"
+                Orientation="Vertical"
+                Value="30" x:Name="countDownProgress" />
+
+            <TextBlock Text="12"
+                       Foreground="Black"
+                       FontSize="24" FontWeight="Heavy"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       x:Name="countDownLabel" />
+        </Grid>
 
         <!--Footer-->
         <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="4"

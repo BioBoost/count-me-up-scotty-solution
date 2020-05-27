@@ -75,7 +75,7 @@ namespace CountMeUpScottyLibrary
 
         // Attributes
         private Player player;
-        private SumChallenge[] challenges = new SumChallenge[10];
+        private SumChallenge[] challenges = new SumChallenge[3];
         int currentChallenge = 0;
     }
 }

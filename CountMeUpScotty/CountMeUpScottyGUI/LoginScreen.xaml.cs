@@ -38,7 +38,7 @@ namespace CountMeUpScottyGUI
                     SaveNickname();
                 }
 
-                GameScreen gamescreen = new GameScreen();
+                GameScreen gamescreen = new GameScreen(nickname.Text);
                 gamescreen.Show();
                 this.Close();
             }
