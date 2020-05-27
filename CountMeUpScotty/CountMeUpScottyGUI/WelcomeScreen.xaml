@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CountMeUpScottyGUI"
         mc:Ignorable="d"
-        Title="Count Me Up Scotty - Please Login"
-        Height="480" Width="600" MinHeight="480" MinWidth="600"
+        Title="Count Me Up Scotty - Information"
+        Height="500" Width="600" MinHeight="500" MinWidth="600"
         WindowStartupLocation="CenterScreen"
         Background="#002b36" Foreground="#fdf6e3" >
 
@@ -21,6 +21,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="20" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
@@ -48,13 +49,21 @@
             <TextBlock  Style="{StaticResource paragraph}">
                 Scores are kept between different game sessions and can be cleared at any time.
             </TextBlock>
-            <Button Content="Click to continue" Name="Continue" Click="Continue_Click"
-                    Padding="3" FontSize="24" FontFamily="Stencil" IsDefault="True"
-                    />
+        </StackPanel>
+
+        <!--Navigation-->
+        <StackPanel Orientation="Horizontal"
+                    Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="3"
+                    HorizontalAlignment="Center">
+
+            <Button
+                Content="Click to continue"
+                Name="Continue" Click="Continue_Click"
+                IsDefault="True" />
         </StackPanel>
 
         <!--Footer-->
-        <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="3"
+        <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="4"
                    Background="#657b83">
 
             <TextBlock Text="When numbers keep you awake at night" 

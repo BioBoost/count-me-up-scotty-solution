@@ -55,23 +55,27 @@
         </Grid>
 
         <!--Navigation-->
-        <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="3">
+        <StackPanel Orientation="Horizontal"
+                    Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="3"
+                    HorizontalAlignment="Center">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+            <Button Height="40"
+                x:Name="PreviousInfoScreen"
+                VerticalAlignment="Center" Click="PreviousInfoScreen_Click">
+                <Image Source="/images/previous.png" Stretch="Uniform" />
+            </Button>
 
-            <Button Grid.Column="0"
-                x:Name="PreviousInfoScreen" Content="Previous" VerticalAlignment="Center" Click="PreviousInfoScreen_Click" />
+            <Button
+                x:Name="Close" Content="Close"
+                VerticalAlignment="Center" Click="Close_Click" />
 
-            <Button Grid.Column="1"
-                x:Name="Close" Content="Close" VerticalAlignment="Center" Click="Close_Click" />
+            <Button Height="40"
+                x:Name="NextInfoScreen"
+                VerticalAlignment="Center" Click="NextInfoScreen_Click">
+                <Image Source="/images/next.png" Stretch="Uniform" />
+            </Button>
 
-            <Button Grid.Column="2"
-                x:Name="NextInfoScreen" Content="Next" VerticalAlignment="Center" Click="NextInfoScreen_Click" />
-        </Grid>
+        </StackPanel>
 
         <!--Footer-->
         <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="4"
