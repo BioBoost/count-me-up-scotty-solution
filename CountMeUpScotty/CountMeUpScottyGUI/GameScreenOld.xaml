@@ -69,7 +69,14 @@
         <ProgressBar x:Name="progress" Grid.Column="2" Grid.Row="4" Value="40" Foreground="#FF859900" />
         <TextBlock x:Name="progressLabel" Grid.Column="2" Grid.Row="4" Text="Solved xx of xx challenges" Foreground="#FF073642"
                    VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" FontFamily="Palatino Linotype" />
-        <Button Content="Start Game" Name="startgame" Click="startgame_Click" Grid.Column="2" Grid.Row="4" Padding="3" FontSize="24"  FontFamily="Stencil" />
+        <Button Content="Start Game" Name="startgame" Click="startgame_Click" Grid.Column="2" Grid.Row="4" Padding="3" FontSize="24"  FontFamily="Stencil">
+
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
         <TextBlock Text="When numbers keep you awake at night" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" FontFamily="Tempus Sans ITC" />
     </Grid>
