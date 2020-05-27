@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CountMeUpScottyGUI.InfoScreens;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,12 @@ namespace CountMeUpScottyGUI
         public GameScreen()
         {
             InitializeComponent();
+        }
+
+        private void Help_Click(object sender, RoutedEventArgs e)
+        {
+            SolveChallengeInfoScreen screen = new SolveChallengeInfoScreen();
+            screen.Show();
         }
     }
 }

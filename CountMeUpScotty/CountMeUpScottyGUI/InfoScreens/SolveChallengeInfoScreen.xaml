@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Count Me Up Scotty - Information"
         Height="500" Width="600" MinHeight="500" MinWidth="600"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterOwner"
         Background="#002b36" Foreground="#fdf6e3" >
 
     <Grid>

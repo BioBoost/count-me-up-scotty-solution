@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CountMeUpScottyGUI"
         mc:Ignorable="d"
-        Title="Count Me Up Scotty - Please Login"
-        Height="480" Width="600" MinHeight="480" MinWidth="600"
-        WindowStartupLocation="CenterScreen"
+        Title="Count Me Up Scotty"
+        Height="500" Width="600" MinHeight="500" MinWidth="600"
+        WindowStartupLocation="CenterOwner"
         Background="#002b36" Foreground="#fdf6e3" >
 
     <Grid>
@@ -21,6 +21,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="20" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
@@ -38,19 +39,25 @@
         <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
             <TextBlock Text="Please provide a Nickname" FontSize="16" FontFamily="Palatino Linotype" Margin="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
             <TextBox x:Name="nickname" Text="Anonymous" Margin="70 10" Padding="5" FontFamily="Elephant" FontSize="24" HorizontalContentAlignment="Center" Background="#eee8d5" GotFocus="nickname_GotFocus"/>
-            
-            <Button Content="Login"
-                    Name="Login" Click="Login_Click"
-                    Margin="70 30" Padding="3"
-                    FontSize="24" FontFamily="Stencil"
-                    IsDefault="True" />
 
             <!--Special Thanks to Henry Buysschaert for this tip!-->
-            <CheckBox x:Name="rememberMe" Content="Remember Me" FontSize="14" Foreground="#fdf6e3" HorizontalAlignment="Center" Margin="4" />
+            <CheckBox x:Name="rememberMe" Content="Remember Me"
+                      FontSize="14" Foreground="#fdf6e3"
+                      HorizontalAlignment="Center" Margin="24" />
+        </StackPanel>
+
+        <!--Navigation-->
+        <StackPanel Orientation="Horizontal"
+                    Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="3"
+                    HorizontalAlignment="Center">
+
+            <Button Content="Login"
+                    Name="Login" Click="Login_Click"
+                    IsDefault="True" />
         </StackPanel>
 
         <!--Footer-->
-        <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="3"
+        <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="4"
                    Background="#657b83">
 
             <TextBlock Text="When numbers keep you awake at night" 
