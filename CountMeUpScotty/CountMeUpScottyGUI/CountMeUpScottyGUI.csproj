@@ -55,6 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GameScreen.xaml.cs">
+      <DependentUpon>GameScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InfoScreens\CountDownTimerInfoScreen.xaml.cs">
+      <DependentUpon>CountDownTimerInfoScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InfoScreens\DifficultyInfoScreen.xaml.cs">
+      <DependentUpon>DifficultyInfoScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InfoScreens\SolveChallengeInfoScreen.xaml.cs">
+      <DependentUpon>SolveChallengeInfoScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginScreen.xaml.cs">
       <DependentUpon>LoginScreen.xaml</DependentUpon>
     </Compile>
@@ -62,6 +74,22 @@
       <DependentUpon>WelcomeScreen.xaml</DependentUpon>
     </Compile>
     <Page Include="GameScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameScreenOld.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InfoScreens\CountDownTimerInfoScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InfoScreens\DifficultyInfoScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InfoScreens\SolveChallengeInfoScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -73,8 +101,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GameScreen.xaml.cs">
-      <DependentUpon>GameScreen.xaml</DependentUpon>
+    <Compile Include="GameScreenOld.xaml.cs">
+      <DependentUpon>GameScreenOld.xaml</DependentUpon>
     </Compile>
     <Page Include="WelcomeScreen.xaml">
       <SubType>Designer</SubType>
@@ -112,6 +140,11 @@
       <Project>{55e31c0a-d214-422b-9acd-1b708e978eed}</Project>
       <Name>CountMeUpScottyLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\solve-challenge.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
