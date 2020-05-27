@@ -10,20 +10,6 @@
         WindowStartupLocation="CenterScreen"
         Background="#002b36" Foreground="#fdf6e3" >
 
-    <Window.Resources>
-        <Style TargetType="TextBlock" x:Key="paragraph">
-            <Setter Property="Margin" Value="5" />
-            <Setter Property="TextWrapping" Value="Wrap" />
-            <Setter Property="FontSize" Value="16" />
-        </Style>
-        <Style TargetType="Button">
-            <Setter Property="Padding" Value="5" />
-            <Setter Property="Margin" Value="20" />
-            <Setter Property="FontSize" Value="24" />
-            <Setter Property="FontFamily" Value="Stencil" />
-        </Style>
-    </Window.Resources>
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />

@@ -4,6 +4,16 @@
              xmlns:local="clr-namespace:CountMeUpScottyGUI"
              StartupUri="WelcomeScreen.xaml">
     <Application.Resources>
-
+        <Style TargetType="TextBlock" x:Key="paragraph">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Margin" Value="20" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontFamily" Value="Stencil" />
+        </Style>
     </Application.Resources>
 </Application>
