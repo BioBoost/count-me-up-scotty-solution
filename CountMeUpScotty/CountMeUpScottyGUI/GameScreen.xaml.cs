@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace CountMeUpScottyGUI
 {
@@ -25,11 +26,16 @@ namespace CountMeUpScottyGUI
         private Player player = null;
         private Game game = null;
         private SumChallenge currentChallenge = null;
+        private DispatcherTimer countDownTimer = null;
+        private int countDownValue = 0;
+        private static int TIME_FOR_SOLVING_CHALLENGE = 12;
 
         public GameScreen(string nickname)
         {
             InitializeComponent();
             player = new Player(nickname);
+            CreateCountDownTimer();
+            countDownProgress.Maximum = TIME_FOR_SOLVING_CHALLENGE;
         }
 
         private void Help_Click(object sender, RoutedEventArgs e)
@@ -59,11 +65,31 @@ namespace CountMeUpScottyGUI
             UpdateStaticGUIControls();
             progressChallenges.Maximum = game.NumberOfChallenges();
             PrepareChallenge();
+            UpdateCountDownGUI();
+            countDownTimer.Start();
+        }
+
+        private void CreateCountDownTimer()
+        {
+            countDownTimer = new DispatcherTimer();
+            countDownTimer.Interval = TimeSpan.FromSeconds(1);
+            countDownTimer.Tick += CountDownTimer_Tick;
+        }
+
+        private void CountDownTimer_Tick(object sender, EventArgs e)
+        {
+            countDownValue--;
+            if (countDownValue <= 0)
+            {
+                PrepareChallenge();
+            }
+            UpdateCountDownGUI();
         }
 
         private void StopCurrentGame()
         {
             Console.WriteLine("Stopping current game");
+            countDownTimer.Stop();
             isGameInProgress = false;
             UpdateStaticGUIControls();
         }
@@ -85,11 +111,18 @@ namespace CountMeUpScottyGUI
             }
         }
 
+        private void UpdateCountDownGUI()
+        {
+            countDownProgress.Value = countDownValue;
+            countDownLabel.Text = countDownValue.ToString();
+        }
+
         private void PrepareChallenge()
         {
             if (!game.IsFinished())
             {
                 Console.WriteLine("Preparing challenge");
+                countDownValue = TIME_FOR_SOLVING_CHALLENGE;
                 progressChallenges.Value = game.GetCurrentChallengeNumber();
                 currentChallenge = game.NextChallenge();
                 leftValue.Text = currentChallenge.LeftValue().ToString();

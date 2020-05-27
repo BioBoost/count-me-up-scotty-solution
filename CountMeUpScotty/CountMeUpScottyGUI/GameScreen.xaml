@@ -128,7 +128,7 @@
                        FontSize="48" Foreground="#fdf6e3"
                        VerticalContentAlignment="Center"
                        TextAlignment="Center" KeyDown="userSolution_KeyDown"
-                       CaretBrush="#FF268BD2" BorderThickness="0"
+                       CaretBrush="#fdf6e3" BorderThickness="0"
                        MaxLength="3"
                         />
            
