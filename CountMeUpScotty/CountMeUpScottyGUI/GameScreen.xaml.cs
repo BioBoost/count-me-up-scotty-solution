@@ -1,31 +1,17 @@
 ﻿using CountMeUpScottyGUI.InfoScreens;
 using CountMeUpScottyLibrary;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace CountMeUpScottyGUI
 {
-    /// <summary>
-    /// Interaction logic for GameScreen.xaml
-    /// </summary>
     public partial class GameScreen : Window
     {
         private bool isGameInProgress = false;
         private Player player = null;
         private Game game = null;
-        private SumChallenge currentChallenge = null;
         private DispatcherTimer countDownTimer = null;
         private int countDownValue = 0;
         private static int TIME_FOR_SOLVING_CHALLENGE = 12;
@@ -60,11 +46,12 @@ namespace CountMeUpScottyGUI
         private void StartNewGame()
         {
             Console.WriteLine("Starting new game");
-            game = new Game(player);
+            game = new Game(player, 3);             // Change number of challenges
             isGameInProgress = true;
             UpdateStaticGUIControls();
             progressChallenges.Maximum = game.NumberOfChallenges();
-            PrepareChallenge();
+            progressChallenges.Value = 0;
+            PrepareNextChallenge();
             UpdateCountDownGUI();
             countDownTimer.Start();
         }
@@ -81,7 +68,7 @@ namespace CountMeUpScottyGUI
             countDownValue--;
             if (countDownValue <= 0)
             {
-                PrepareChallenge();
+                PrepareNextChallenge();
             }
             UpdateCountDownGUI();
         }
@@ -117,22 +104,22 @@ namespace CountMeUpScottyGUI
             countDownLabel.Text = countDownValue.ToString();
         }
 
-        private void PrepareChallenge()
+        private void PrepareNextChallenge()
         {
+            progressChallenges.Value = game.GetCurrentChallengeNumber();
             if (!game.IsFinished())
             {
                 Console.WriteLine("Preparing challenge");
                 countDownValue = TIME_FOR_SOLVING_CHALLENGE;
-                progressChallenges.Value = game.GetCurrentChallengeNumber();
-                currentChallenge = game.NextChallenge();
-                leftValue.Text = currentChallenge.LeftValue().ToString();
-                rightValue.Text = currentChallenge.RightValue().ToString();
+                SumChallenge currentChallenge = game.NextChallenge();
+                leftValue.Text = currentChallenge.LeftOperand().ToString();
+                rightValue.Text = currentChallenge.RightOperand().ToString();
                 userSolution.Text = "";
                 userSolution.Focus();
             }
             else
             {
-                info.Text = $"{player.Name} you have finished the game with a score of {game.Score()}";
+                info.Text = $"{player.Name} you have finished the game with a score of {game.GetFinalScore()}";
                 StopCurrentGame();
             }
         }
@@ -142,8 +129,8 @@ namespace CountMeUpScottyGUI
             try
             {
                 int solution = Convert.ToInt32(userSolution.Text);
-                currentChallenge.Solve(solution);
-                PrepareChallenge();
+                game.SolveCurrentChallenge(solution);
+                PrepareNextChallenge();
             }
             catch (FormatException fe)
             {

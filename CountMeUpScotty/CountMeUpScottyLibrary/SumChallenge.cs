@@ -4,33 +4,31 @@ namespace CountMeUpScottyLibrary
 {
     public class SumChallenge
     {
-        // Default constructor
-        public SumChallenge()
+        public SumChallenge(int minimumOperand = 0, int maxOperand = 10)
         {
-            //Random generator = new Random();      // BUG - Too Fast - Same Seed
-            left = generator.Next(0, 21);
-            right = generator.Next(0, 21);
+            left = generator.Next(minimumOperand, maxOperand+1);
+            right = generator.Next(minimumOperand, maxOperand+1);
         }
 
-        public int LeftValue()
+        public int LeftOperand()
         {
             return left;
         }
 
-        public int RightValue()
+        public int RightOperand()
         {
             return right;
         }
 
-        public void Solve(int result)
+        public void Solve(int result, Score possibleScore)
         {
             attempt = result;
             isSolved = true;
-        }
-
-        private int Solution()
-        {
-            return left + right;
+            score = possibleScore;
+            if (!IsCorrectlySolved())
+            {
+                score.ClearScore();
+            }
         }
 
         public bool IsCorrectlySolved()
@@ -38,16 +36,9 @@ namespace CountMeUpScottyLibrary
             return Solution() == attempt;
         }
 
-        public int Score()
+        public Score GetScore()
         {
-            if (IsCorrectlySolved())
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
+            return score;
         }
 
         public override string ToString()
@@ -73,11 +64,19 @@ namespace CountMeUpScottyLibrary
             return output;
         }
 
+        // Private Methods
+
+        private int Solution()
+        {
+            return left + right;
+        }
+
         // Attributes
         private int left = 0;
         private int right = 0;
         private int attempt = 0;
         private bool isSolved = false;
+        private Score score = new Score();
 
         private static Random generator = new Random();
     }
