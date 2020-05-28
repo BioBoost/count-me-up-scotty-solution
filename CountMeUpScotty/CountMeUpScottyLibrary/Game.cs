@@ -12,7 +12,7 @@ namespace CountMeUpScottyLibrary
         // Constructor
         public Game(Player player, int numberOfChallenges = 10)
         {
-            this.player = player;
+            totalPlayerScore = new PlayerScore(player);
             CreateChallenges(numberOfChallenges);
         }
 
@@ -44,25 +44,21 @@ namespace CountMeUpScottyLibrary
             if (nextChallenge > 0)
             {
                 TimeSpan time = DateTime.Now - startTime;
-                int possibleScore = (int)Math.Floor(12000 / time.TotalMilliseconds);       // TODO Make dependant on difficulty
                 Console.WriteLine("Took you " + time.TotalMilliseconds + " milliseconds");
-                challenges[nextChallenge - 1].Solve(attempt, new Score(possibleScore, time));
+
+                int score = 0;
+                challenges[nextChallenge - 1].Solve(attempt);
+                if (challenges[nextChallenge - 1].IsCorrectlySolved())
+                {
+                    score = (int)Math.Floor(12000 / time.TotalMilliseconds);       // TODO Make dependant on difficulty
+                }
+                totalPlayerScore.Add(score, time);
             }
         }
 
-        public double GetFinalScore()
+        public PlayerScore GetCurrentScore()
         {
-            return GetScoreList().Sum(challenge => challenge.GetScore());
-        }
-
-        public List<Score> GetScoreList()
-        {
-            List<Score> scores = new List<Score>();
-            foreach (var challenge in challenges)
-            {
-                scores.Add(challenge.GetScore());
-            }
-            return scores;
+            return totalPlayerScore;
         }
 
         public int GetCurrentChallengeNumber()
@@ -77,8 +73,15 @@ namespace CountMeUpScottyLibrary
             {
                 output += challenge + "\n";
             }
-            output += $"Your score = {GetFinalScore()}";
+            output += $"Your score = {GetCurrentScore()}";
             return output;
+        }
+
+        public void Finish()
+        {
+            LoadScoreboard();
+            scoreboard.Add(totalPlayerScore);
+            SaveScoreboard();
         }
 
         // Private Methods
@@ -93,10 +96,21 @@ namespace CountMeUpScottyLibrary
             }
         }
 
+        private void LoadScoreboard()
+        {
+            scoreboard.Load("scores.dat");
+        }
+
+        private void SaveScoreboard()
+        {
+            scoreboard.Save("scores.dat");
+        }
+
         // Attributes
-        private Player player = null;
         private SumChallenge[] challenges = null;
         int nextChallenge = 0;
         private DateTime startTime;
+        private Scoreboard scoreboard = new Scoreboard();
+        private PlayerScore totalPlayerScore = null;
     }
 }

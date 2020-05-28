@@ -20,25 +20,15 @@ namespace CountMeUpScottyLibrary
             return right;
         }
 
-        public void Solve(int result, Score possibleScore)
+        public void Solve(int result)
         {
             attempt = result;
             isSolved = true;
-            score = possibleScore;
-            if (!IsCorrectlySolved())
-            {
-                score.ClearScore();
-            }
         }
 
         public bool IsCorrectlySolved()
         {
             return Solution() == attempt;
-        }
-
-        public Score GetScore()
-        {
-            return score;
         }
 
         public override string ToString()
@@ -76,7 +66,6 @@ namespace CountMeUpScottyLibrary
         private int right = 0;
         private int attempt = 0;
         private bool isSolved = false;
-        private Score score = new Score();
 
         private static Random generator = new Random();
     }

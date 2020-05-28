@@ -79,6 +79,7 @@ namespace CountMeUpScottyGUI
             countDownTimer.Stop();
             isGameInProgress = false;
             UpdateStaticGUIControls();
+            game.Finish();
         }
 
         private void UpdateStaticGUIControls()
@@ -119,7 +120,7 @@ namespace CountMeUpScottyGUI
             }
             else
             {
-                info.Text = $"{player.Name} you have finished the game with a score of {game.GetFinalScore()}";
+                info.Text = $"{player.Name} you have finished the game with a score of {game.GetCurrentScore()}";
                 StopCurrentGame();
             }
         }
