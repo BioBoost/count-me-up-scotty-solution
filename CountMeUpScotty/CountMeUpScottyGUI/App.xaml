@@ -2,18 +2,22 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CountMeUpScottyGUI"
-             StartupUri="LoginScreen.xaml">
+             StartupUri="WelcomeScreen.xaml">
     <Application.Resources>
+        
         <Style TargetType="TextBlock" x:Key="paragraph">
             <Setter Property="Margin" Value="5" />
             <Setter Property="TextWrapping" Value="Wrap" />
             <Setter Property="FontSize" Value="16" />
         </Style>
+        
         <Style TargetType="Button">
             <Setter Property="Padding" Value="20,5" />
             <Setter Property="Margin" Value="20" />
             <Setter Property="FontSize" Value="24" />
             <Setter Property="FontFamily" Value="Stencil" />
+            <Setter Property="Background" Value="#eee8d5" />
+            <Setter Property="Foreground" Value="#073642" />
         </Style>
 
         <Style TargetType="TextBlock" x:Key="datagrid_header">
@@ -35,5 +39,6 @@
             <Setter Property="Foreground" Value="#fdf6e3" />
             <Setter Property="Background" Value="#002b36" />
         </Style>
+        
     </Application.Resources>
 </Application>
