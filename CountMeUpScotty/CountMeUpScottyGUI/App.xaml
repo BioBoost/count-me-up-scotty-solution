@@ -39,6 +39,14 @@
             <Setter Property="Foreground" Value="#fdf6e3" />
             <Setter Property="Background" Value="#002b36" />
         </Style>
+
+        <Style TargetType="TextBlock" x:Key="footer">
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="Background" Value="#657b83" />
+            <Setter Property="Margin" Value="1" />
+            <Setter Property="FontStyle" Value="Italic" />
+            <Setter Property="FontFamily" Value="Tempus Sans ITC" />
+        </Style>
         
     </Application.Resources>
 </Application>

@@ -128,13 +128,8 @@
         </StackPanel>
 
         <!--Footer-->
-        <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="4"
-                   Background="#657b83">
-
-            <TextBlock Text="When numbers keep you awake at night" 
-                   TextAlignment="Center" Background="#657b83"
-                   Margin="1"
-                   FontStyle="Italic" FontFamily="Tempus Sans ITC" />
+        <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="4" Background="#657b83">
+            <TextBlock Text="When numbers keep you awake at night" Style="{StaticResource footer}" />
         </Grid>
 
     </Grid>
