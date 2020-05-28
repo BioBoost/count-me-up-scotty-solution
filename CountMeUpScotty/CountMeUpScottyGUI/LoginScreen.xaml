@@ -38,7 +38,25 @@
         <!-- Content -->
         <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
             <TextBlock Text="Please provide a Nickname" FontSize="16" FontFamily="Palatino Linotype" Margin="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
-            <TextBox x:Name="nickname" Text="Anonymous" Margin="70 10" Padding="5" FontFamily="Elephant" FontSize="24" HorizontalContentAlignment="Center" Background="#eee8d5" GotFocus="nickname_GotFocus"/>
+
+            <Grid Margin="40 10">
+                <Rectangle
+                       Fill="#657b83"
+                       RadiusX="10" RadiusY="10"
+                       StrokeThickness="4" Stroke="#fdf6e3" />
+
+                <TextBox
+                       x:Name="nickname" Text="Anonymous"
+                       Background="{x:Null}" BorderBrush="{x:Null}"
+                       FontWeight="ExtraBold"
+                       FontSize="32" Foreground="#fdf6e3"
+                       VerticalContentAlignment="Center"
+                       TextAlignment="Center"
+                       CaretBrush="#fdf6e3" BorderThickness="0"
+                       GotFocus="nickname_GotFocus"
+                       Padding="8"
+                        />
+            </Grid>
 
             <!--Special Thanks to Henry Buysschaert for this tip!-->
             <CheckBox x:Name="rememberMe" Content="Remember Me"
