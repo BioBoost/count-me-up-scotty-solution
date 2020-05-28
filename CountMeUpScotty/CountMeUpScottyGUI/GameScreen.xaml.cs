@@ -80,6 +80,8 @@ namespace CountMeUpScottyGUI
             isGameInProgress = false;
             UpdateStaticGUIControls();
             game.Finish();
+            OverviewScreen overview = new OverviewScreen(game.GetChallenges());
+            overview.Show();
         }
 
         private void UpdateStaticGUIControls()
@@ -145,6 +147,16 @@ namespace CountMeUpScottyGUI
             {
                 ProcessUserInput();
             }
+        }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Scoreboard_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

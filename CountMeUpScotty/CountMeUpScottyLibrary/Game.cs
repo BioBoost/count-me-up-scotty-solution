@@ -84,6 +84,11 @@ namespace CountMeUpScottyLibrary
             SaveScoreboard();
         }
 
+        public List<SumChallenge> GetChallenges()
+        {
+            return new List<SumChallenge>(challenges);
+        }
+
         // Private Methods
 
         // TODO Should depend on the difficulty

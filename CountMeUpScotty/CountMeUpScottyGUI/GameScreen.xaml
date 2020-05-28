@@ -6,9 +6,18 @@
         xmlns:local="clr-namespace:CountMeUpScottyGUI"
         mc:Ignorable="d"
         Title="Count Me Up Scotty"
-        Height="500" Width="800" MinHeight="500" MinWidth="600"
+        Height="500" Width="800" MinHeight="500" MinWidth="800"
         WindowStartupLocation="CenterOwner"
         Background="#002b36" Foreground="#fdf6e3" >
+
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="navButton">
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="Margin" Value="2" />
+        </Style>
+    </Window.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -33,6 +42,25 @@
                    TextAlignment="Center" 
                    FontSize="48" FontFamily="Stencil"
                    Margin="10" />
+
+            <StackPanel Orientation="Horizontal" Margin="4, 10"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right">
+
+                <Button x:Name="Help" Style="{StaticResource navButton}" Click="Help_Click">
+                    <Image Source="/images/help.png" Stretch="Uniform" />
+                </Button>
+
+                <Button x:Name="Settings" Style="{StaticResource navButton}" Click="Settings_Click">
+                    <Image Source="/images/settings.png" Stretch="Uniform" />
+                </Button>
+
+                <Button x:Name="Scoreboard" Style="{StaticResource navButton}" Click="Scoreboard_Click">
+                    <Image Source="/images/settings.png" Stretch="Uniform" />
+                </Button>
+
+            </StackPanel>
+
         </Grid>
 
         <!--Progress-->
@@ -152,24 +180,6 @@
                 x:Name="StartStop" Content="Start Game"
                 VerticalAlignment="Center" Click="StartStop_Click" />
         </StackPanel>
-
-        <Button Grid.Column="2" Grid.Row="3"
-            Height="40" Width="40"
-            Padding="4" Margin="0"
-            x:Name="Help" Click="Help_Click">
-
-            <Image Source="/images/help.png" Stretch="Uniform" />
-
-        </Button>
-
-        <Button Grid.Column="0" Grid.Row="3"
-            Height="40" Width="40"
-            Padding="4" Margin="0"
-            x:Name="Settings">
-
-            <Image Source="/images/settings.png" Stretch="Uniform" />
-
-        </Button>
 
         <!--CountDown-->
         <Grid Grid.Row="2" Grid.Column="2">
