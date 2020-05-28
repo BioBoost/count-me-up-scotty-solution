@@ -33,6 +33,10 @@ namespace CountMeUpScottyLibrary
         {
             get { return time; }
         }
+        public String ShortTime
+        {
+            get { return $"{time.Minutes}m {time.Seconds}.{time.Milliseconds}s"; }
+        }
 
         private Player player = null;
         public Player Player

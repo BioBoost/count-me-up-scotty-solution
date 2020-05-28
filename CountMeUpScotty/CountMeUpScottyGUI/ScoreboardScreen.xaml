@@ -89,21 +89,6 @@
                     <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.HeaderTemplate>
                             <DataTemplate>
-                                <TextBlock Text="Rank" Style="{StaticResource header}"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.HeaderTemplate>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Grid Background="#002b36">
-                                    <TextBlock Text="{Binding Rank}" Style="{StaticResource cell}"/>
-                                </Grid>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-
-                    <DataGridTemplateColumn Width="*">
-                        <DataGridTemplateColumn.HeaderTemplate>
-                            <DataTemplate>
                                 <TextBlock Text="Player" Style="{StaticResource header}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.HeaderTemplate>
@@ -140,7 +125,7 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Grid Background="#002b36">
-                                    <TextBlock Text="{Binding Time}" Style="{StaticResource cell}"/>
+                                    <TextBlock Text="{Binding ShortTime}" Style="{StaticResource cell}"/>
                                 </Grid>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
