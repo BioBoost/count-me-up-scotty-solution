@@ -17,3 +17,21 @@ Other things to include
 * add timing
 * display progress
 * report solutions after a challenge session
+
+## Some Images
+
+### Nice Main Menu
+
+![Main Menu](./img/menu.png)
+
+### Settings
+
+![Settings](./img/settings.png)
+
+### Math Challenges
+
+![Math Challenges](./img/game.png)
+
+### Result Overview
+
+![Result Overview](./img/overview.png)
