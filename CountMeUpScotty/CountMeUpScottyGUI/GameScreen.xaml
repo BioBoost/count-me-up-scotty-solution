@@ -8,7 +8,7 @@
         Title="Count Me Up Scotty"
         Height="500" Width="800" MinHeight="500" MinWidth="800"
         WindowStartupLocation="CenterOwner"
-        Background="#002b36" Foreground="#fdf6e3" >
+        Background="#002b36" Foreground="#fdf6e3" Closing="Window_Closing" >
 
     <Window.Resources>
         <Style TargetType="Button" x:Key="navButton">
@@ -46,19 +46,6 @@
             <StackPanel Orientation="Horizontal" Margin="4, 10"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Right">
-
-                <Button x:Name="Help" Style="{StaticResource navButton}" Click="Help_Click">
-                    <Image Source="/images/help.png" Stretch="Uniform" />
-                </Button>
-
-                <Button x:Name="Settings" Style="{StaticResource navButton}" Click="Settings_Click">
-                    <Image Source="/images/settings.png" Stretch="Uniform" />
-                </Button>
-
-                <Button x:Name="Scoreboard" Style="{StaticResource navButton}" Click="Scoreboard_Click">
-                    <Image Source="/images/settings.png" Stretch="Uniform" />
-                </Button>
-
             </StackPanel>
 
         </Grid>
@@ -197,6 +184,15 @@
                        HorizontalAlignment="Center"
                        x:Name="countDownLabel" />
         </Grid>
+
+        <Button Grid.Row="3" Grid.Column="2"
+                x:Name="mainMenu" Click="mainMenu_Click"
+                ToolTip="Go back to the main menu">
+            <Grid>
+                <Image Grid.Column="0" HorizontalAlignment="Center"
+                        Source="/images/home.png" Stretch="Uniform" />
+            </Grid>
+        </Button>
 
         <!--Footer-->
         <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="4" Background="#657b83">

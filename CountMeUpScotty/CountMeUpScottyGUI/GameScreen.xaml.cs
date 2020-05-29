@@ -24,12 +24,6 @@ namespace CountMeUpScottyGUI
             countDownProgress.Maximum = TIME_FOR_SOLVING_CHALLENGE;
         }
 
-        private void Help_Click(object sender, RoutedEventArgs e)
-        {
-            SolveChallengeInfoScreen screen = new SolveChallengeInfoScreen();
-            screen.Show();
-        }
-
         private void StartStop_Click(object sender, RoutedEventArgs e)
         {
             if (!isGameInProgress)
@@ -149,14 +143,30 @@ namespace CountMeUpScottyGUI
             }
         }
 
-        private void Settings_Click(object sender, RoutedEventArgs e)
+        private void mainMenu_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
-        private void Scoreboard_Click(object sender, RoutedEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            if (isGameInProgress)
+            {
+                MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you wish to leave? This will forfeit the current game?", "Count Me Up Scotty", MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.No)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+                StopCurrentGame();
+            }
+            OpenMainMenu();
+        }
 
+        private void OpenMainMenu()
+        {
+            MainMenuScreen screen = new MainMenuScreen(player.Name);
+            screen.Show();
         }
     }
 }

@@ -79,9 +79,12 @@ namespace CountMeUpScottyLibrary
 
         public void Finish()
         {
-            LoadScoreboard();
-            scoreboard.Add(totalPlayerScore);
-            SaveScoreboard();
+            if (IsFinished())
+            {
+                LoadScoreboard();
+                scoreboard.Add(totalPlayerScore);
+                SaveScoreboard();
+            }
         }
 
         public List<SumChallenge> GetChallenges()

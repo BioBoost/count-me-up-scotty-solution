@@ -23,8 +23,8 @@ namespace CountMeUpScottyGUI
 
         private void Continue_Click(object sender, RoutedEventArgs e)
         {
-            MainMenuScreen next = new MainMenuScreen();
-            next.Show();
+            LoginScreen login = new LoginScreen();
+            login.Show();
             this.Close();
         }
     }
