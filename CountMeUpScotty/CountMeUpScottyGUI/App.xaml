@@ -47,6 +47,28 @@
             <Setter Property="FontStyle" Value="Italic" />
             <Setter Property="FontFamily" Value="Tempus Sans ITC" />
         </Style>
+
+        <Style TargetType="DataGrid" x:Key="datagrid_as_listing">
+            <Setter Property="AutoGenerateColumns" Value="False" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="{x:Null}" />
+            <Setter Property="GridLinesVisibility" Value="None" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+            <Setter Property="VerticalScrollBarVisibility" Value="Hidden" />
+            <Setter Property="CanUserReorderColumns" Value="False" />
+            <Setter Property="CanUserResizeColumns" Value="False" />
+            <Setter Property="CanUserSortColumns" Value="False" />
+            <Setter Property="CanUserResizeRows" Value="False" />
+            <Setter Property="HeadersVisibility" Value="Column" />
+            <Setter Property="IsEnabled" Value="False" />
+            <Setter Property="Focusable" Value="Focusable" />
+            <Setter Property="HorizontalGridLinesBrush" Value="{x:Null}" />
+            <Setter Property="VerticalGridLinesBrush" Value="{x:Null}" />
+            <Setter Property="IsReadOnly" Value="Center" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+        </Style>
         
     </Application.Resources>
 </Application>

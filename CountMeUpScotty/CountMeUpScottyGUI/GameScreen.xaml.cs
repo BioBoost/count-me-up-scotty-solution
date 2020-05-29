@@ -74,6 +74,10 @@ namespace CountMeUpScottyGUI
             isGameInProgress = false;
             UpdateStaticGUIControls();
             game.Finish();
+        }
+
+        private void ShowOverviewScreen()
+        {
             OverviewScreen overview = new OverviewScreen(game.GetChallenges());
             overview.Show();
         }
@@ -118,6 +122,7 @@ namespace CountMeUpScottyGUI
             {
                 info.Text = $"{player.Name} you have finished the game with a score of {game.GetCurrentScore()}";
                 StopCurrentGame();
+                ShowOverviewScreen();
             }
         }
 

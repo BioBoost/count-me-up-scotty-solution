@@ -53,17 +53,8 @@
         <Grid Grid.Column="1" Grid.Row="2">
 
             <!--Thanks at Arno Baecke for the Datagrid tip-->
-            <DataGrid Name="datagridScoreboard" AutoGenerateColumns="False"
-                      BorderThickness="0"
-                      Background="{x:Null}" GridLinesVisibility="None"
-                      HorizontalContentAlignment="Center"
-                      VerticalContentAlignment="Center"
-                      HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden"
-                      CanUserReorderColumns="False" CanUserResizeColumns="False"
-                      CanUserSortColumns="False" CanUserResizeRows="False"
-                      HeadersVisibility="Column" IsEnabled="False" Focusable="False"
-                      HorizontalGridLinesBrush="{x:Null}" VerticalGridLinesBrush="{x:Null}"
-                      IsReadOnly="True" BorderBrush="{x:Null}">
+            <DataGrid Name="datagridScoreboard"
+                      Style="{StaticResource datagrid_as_listing}">
                 <DataGrid.Columns>
 
                     <DataGridTemplateColumn Width="*">
