@@ -19,7 +19,7 @@ namespace CountMeUpScottyGUI
         public GameScreen(string nickname)
         {
             InitializeComponent();
-            player = new Player(nickname);
+            player = PlayerManager.GetPlayer(nickname);
             CreateCountDownTimer();
             countDownProgress.Maximum = TIME_FOR_SOLVING_CHALLENGE;
         }

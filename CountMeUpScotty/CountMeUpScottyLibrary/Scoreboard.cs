@@ -26,7 +26,7 @@ namespace CountMeUpScottyLibrary
                     string[] parts = line.Split('|');
                     int score = Convert.ToInt32(parts[0]);
                     TimeSpan time = TimeSpan.Parse(parts[1]);
-                    Player player = new Player(parts[2]);       // Get actual player
+                    Player player = PlayerManager.GetPlayer(parts[2]);       // Get actual player
                     Add(new PlayerScore(player, score, time));
                 }
                 catch (FormatException fe)
