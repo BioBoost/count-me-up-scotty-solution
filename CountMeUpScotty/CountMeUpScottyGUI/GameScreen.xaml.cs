@@ -78,7 +78,7 @@ namespace CountMeUpScottyGUI
 
         private void ShowOverviewScreen()
         {
-            OverviewScreen overview = new OverviewScreen(game.GetChallenges());
+            OverviewScreen overview = new OverviewScreen(game.GetChallenges(), game.GetCurrentScore());
             overview.Show();
         }
 
@@ -120,7 +120,6 @@ namespace CountMeUpScottyGUI
             }
             else
             {
-                info.Text = $"{player.Name} you have finished the game with a score of {game.GetCurrentScore()}";
                 StopCurrentGame();
                 ShowOverviewScreen();
             }
@@ -133,10 +132,14 @@ namespace CountMeUpScottyGUI
                 int solution = Convert.ToInt32(userSolution.Text);
                 game.SolveCurrentChallenge(solution);
                 PrepareNextChallenge();
+                warning.Visibility = Visibility.Hidden;
             }
             catch (FormatException fe)
             {
-                MessageBox.Show("Please input numbers", "Needs to be replaced by something better");
+                warning.Text = "Please only input valid numbers.";
+                warning.Visibility = Visibility.Visible;
+                userSolution.Text = "";
+                userSolution.Focus();
             }
         }
 

@@ -28,12 +28,17 @@ namespace CountMeUpScottyLibrary
 
         public bool IsCorrectlySolved()
         {
-            return Solution() == attempt;
+            return Solution == Attempt;
+        }
+
+        public string BasicChallengeAsString()
+        {
+            return $"{left} + {right} = ";
         }
 
         public override string ToString()
         {
-            string output = $"{left} + {right} = ";
+            string output = BasicChallengeAsString();
 
             if (!isSolved)
             {
@@ -47,19 +52,17 @@ namespace CountMeUpScottyLibrary
                 }
                 else
                 {
-                    output += $"{attempt} [X {Solution()}]";
+                    output += $"{attempt} [X {Solution}]";
                 }
             }
 
             return output;
         }
 
-        // Private Methods
 
-        private int Solution()
-        {
-            return left + right;
-        }
+        // Properties
+        public int Attempt { get { return attempt; } }
+        public int Solution { get { return left + right; } }
 
         // Attributes
         private int left = 0;

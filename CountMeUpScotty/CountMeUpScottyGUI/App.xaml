@@ -4,7 +4,14 @@
              xmlns:local="clr-namespace:CountMeUpScottyGUI"
              StartupUri="WelcomeScreen.xaml">
     <Application.Resources>
-        
+
+        <Style TargetType="TextBlock" x:Key="title">
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="48" />
+            <Setter Property="FontFamily" Value="Stencil" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+
         <Style TargetType="TextBlock" x:Key="paragraph">
             <Setter Property="Margin" Value="5" />
             <Setter Property="TextWrapping" Value="Wrap" />
@@ -63,10 +70,10 @@
             <Setter Property="CanUserResizeRows" Value="False" />
             <Setter Property="HeadersVisibility" Value="Column" />
             <Setter Property="IsEnabled" Value="False" />
-            <Setter Property="Focusable" Value="Focusable" />
+            <Setter Property="Focusable" Value="False" />
             <Setter Property="HorizontalGridLinesBrush" Value="{x:Null}" />
             <Setter Property="VerticalGridLinesBrush" Value="{x:Null}" />
-            <Setter Property="IsReadOnly" Value="Center" />
+            <Setter Property="IsReadOnly" Value="True" />
             <Setter Property="BorderBrush" Value="{x:Null}" />
         </Style>
         

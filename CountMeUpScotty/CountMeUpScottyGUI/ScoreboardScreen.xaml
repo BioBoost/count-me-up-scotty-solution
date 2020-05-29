@@ -42,11 +42,7 @@
         <!--Title-->
         <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0"
                    Background="#657b83">
-
-            <TextBlock Text="Count Me Up Scotty" 
-                   TextAlignment="Center" 
-                   FontSize="48" FontFamily="Stencil"
-                   Margin="10" />
+            <TextBlock Text="Count Me Up Scotty" Style="{StaticResource title}" />
         </Grid>
 
         <!-- Content -->

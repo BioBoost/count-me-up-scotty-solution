@@ -12,14 +12,14 @@
         Background="#002b36" Foreground="#fdf6e3" >
 
     <Window.Resources>
-        <Style TargetType="{x:Type DataGridColumnHeader}">
-            <Setter Property="Background" Value="#002b36" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
+
+        <Style TargetType="TextBlock" x:Key="heading" BasedOn="{StaticResource datagrid_header}">
         </Style>
 
-        <Style TargetType="{x:Type DataGridRow}">
-            <Setter Property="Background" Value="#002b36" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
+        <Style TargetType="TextBlock" x:Key="entry" BasedOn="{StaticResource datagrid_cell}">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="DemiBold" />
+            <Setter Property="Margin" Value="8" />
         </Style>
 
     </Window.Resources>
@@ -42,70 +42,37 @@
         <!--Title-->
         <Grid Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0"
                    Background="#657b83">
-
-            <TextBlock Text="Count Me Up Scotty" 
-                   TextAlignment="Center" 
-                   FontSize="48" FontFamily="Stencil"
-                   Margin="10" />
+            <TextBlock Text="Count Me Up Scotty" Style="{StaticResource title}" />
         </Grid>
 
         <!-- Content -->
-        <Grid Grid.Column="1" Grid.Row="2">
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2">
+            <!--Taking another approach instead of datagrid because
+            we can style this more easily-->
+            <!--Thanks at Emma Dossche for the idea-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <!--Thanks at Arno Baecke for the Datagrid tip-->
-            <DataGrid Name="datagridOverview"
-                      Style="{StaticResource datagrid_as_listing}">
-                <DataGrid.Columns>
+                <StackPanel Orientation="Vertical" Grid.Column="0">
+                    <TextBlock Text="Challenge" Style="{StaticResource heading}"/>
+                    <Border BorderBrush="#fdf6e3" BorderThickness="1" />
+                    <TextBlock TextAlignment="Center" x:Name="ChallengeField" Style="{StaticResource entry}" />
+                </StackPanel>
 
-                    <DataGridTemplateColumn Width="*">
-                        <DataGridTemplateColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="Challenge" Style="{StaticResource datagrid_header}"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.HeaderTemplate>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Grid Background="#002b36">
-                                    <TextBlock Text="{Binding Player.Name}" Style="{StaticResource datagrid_cell}"/>
-                                </Grid>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                <StackPanel Orientation="Vertical" Grid.Column="1">
+                    <TextBlock Text="Your Solution" Style="{StaticResource heading}"/>
+                    <Border BorderBrush="#fdf6e3" BorderThickness="1" />
+                    <TextBlock TextAlignment="Center" x:Name="SolutionField" Style="{StaticResource entry}" />
+                </StackPanel>
+            </Grid>
 
-                    <DataGridTemplateColumn Width="*">
-                        <DataGridTemplateColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="Your Answer" Style="{StaticResource datagrid_header}"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.HeaderTemplate>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Grid Background="#002b36">
-                                    <TextBlock Text="{Binding Score}" Style="{StaticResource datagrid_cell}"/>
-                                </Grid>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+            <Border BorderBrush="#fdf6e3" BorderThickness="1" />
+            <TextBlock x:Name="ResultMessage" Style="{StaticResource paragraph}"/>
 
-                    <DataGridTemplateColumn Width="*">
-                        <DataGridTemplateColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="Correct?" Style="{StaticResource datagrid_header}"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.HeaderTemplate>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Grid Background="#002b36">
-                                    <TextBlock Text="{Binding ShortTime}" Style="{StaticResource datagrid_cell}"/>
-                                </Grid>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-
-                </DataGrid.Columns>
-            </DataGrid>
-
-        </Grid>
+        </StackPanel>
 
         <!--Navigation-->
         <StackPanel Orientation="Horizontal"
@@ -114,8 +81,7 @@
 
             <Button
                 Content="Close"
-                x:Name="Close" Click="Close_Click"
-                IsDefault="True" />
+                x:Name="Close" Click="Close_Click" />
         </StackPanel>
 
         <!--Footer-->
