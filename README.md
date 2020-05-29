@@ -17,8 +17,3 @@ Other things to include
 * add timing
 * display progress
 * report solutions after a challenge session
-
-## Some Notes
-
-* Try to go for a single UI design for the full app. Don't start mixing all kinds of design styles.
-* The loads of duplication can be solved by introducing user controls for example.
