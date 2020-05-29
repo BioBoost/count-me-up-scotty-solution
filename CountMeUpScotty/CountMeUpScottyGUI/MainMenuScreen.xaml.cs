@@ -1,4 +1,5 @@
 ﻿using CountMeUpScottyGUI.InfoScreens;
+using CountMeUpScottyGUI.Properties;
 using CountMeUpScottyLibrary;
 using System;
 using System.Collections.Generic;
@@ -45,7 +46,8 @@ namespace CountMeUpScottyGUI
 
         private void settings_Click(object sender, RoutedEventArgs e)
         {
-
+            SettingsScreen screen = new SettingsScreen();
+            screen.Show();
         }
 
         private void help_Click(object sender, RoutedEventArgs e)

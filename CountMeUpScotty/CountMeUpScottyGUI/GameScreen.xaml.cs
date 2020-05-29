@@ -1,6 +1,7 @@
 ﻿using CountMeUpScottyGUI.InfoScreens;
 using CountMeUpScottyLibrary;
 using System;
+using System.Media;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -15,10 +16,17 @@ namespace CountMeUpScottyGUI
         private DispatcherTimer countDownTimer = null;
         private int countDownValue = 0;
         private static int TIME_FOR_SOLVING_CHALLENGE = 12;
+        private bool playSound = true;
+        private Settings settings;
+
+        private SoundPlayer wrongSound = new SoundPlayer(Properties.Resources.wrong);
+        private SoundPlayer correctSound = new SoundPlayer(Properties.Resources.correct);
 
         public GameScreen(string nickname)
         {
             InitializeComponent();
+            settings.Load();
+            playSound = settings.PlaySounds;
             player = PlayerManager.GetPlayer(nickname);
             CreateCountDownTimer();
             countDownProgress.Maximum = TIME_FOR_SOLVING_CHALLENGE;
@@ -40,7 +48,7 @@ namespace CountMeUpScottyGUI
         private void StartNewGame()
         {
             Console.WriteLine("Starting new game");
-            game = new Game(player, 3);             // Change number of challenges
+            game = new Game(player, settings.NumberOfChallenges);
             isGameInProgress = true;
             UpdateStaticGUIControls();
             progressChallenges.Maximum = game.NumberOfChallenges();
@@ -130,7 +138,14 @@ namespace CountMeUpScottyGUI
             try
             {
                 int solution = Convert.ToInt32(userSolution.Text);
-                game.SolveCurrentChallenge(solution);
+                if (game.SolveCurrentChallenge(solution) && playSound)
+                {
+                    correctSound.Play();
+                }
+                else if (playSound)
+                {
+                    wrongSound.Play();
+                }
                 PrepareNextChallenge();
                 warning.Visibility = Visibility.Hidden;
             }

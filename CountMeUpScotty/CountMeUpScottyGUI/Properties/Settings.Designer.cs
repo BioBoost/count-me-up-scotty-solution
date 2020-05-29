@@ -34,5 +34,41 @@ namespace CountMeUpScottyGUI.Properties {
                 this["Nickname"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool PlaySounds {
+            get {
+                return ((bool)(this["PlaySounds"]));
+            }
+            set {
+                this["PlaySounds"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int NumberOfChallenges {
+            get {
+                return ((int)(this["NumberOfChallenges"]));
+            }
+            set {
+                this["NumberOfChallenges"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NORMAL")]
+        public global::CountMeUpScottyLibrary.Difficulty Difficulty {
+            get {
+                return ((global::CountMeUpScottyLibrary.Difficulty)(this["Difficulty"]));
+            }
+            set {
+                this["Difficulty"] = value;
+            }
+        }
     }
 }

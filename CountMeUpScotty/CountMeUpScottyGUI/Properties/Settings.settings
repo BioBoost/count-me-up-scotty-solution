@@ -5,5 +5,14 @@
     <Setting Name="Nickname" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="PlaySounds" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NumberOfChallenges" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="Difficulty" Type="CountMeUpScottyLibrary.Difficulty" Scope="User">
+      <Value Profile="(Default)">NORMAL</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

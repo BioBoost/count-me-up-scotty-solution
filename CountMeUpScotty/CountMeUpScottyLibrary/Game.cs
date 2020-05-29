@@ -6,7 +6,6 @@ using System.Linq;
 
 namespace CountMeUpScottyLibrary
 {
-
     public class Game
     {
         // Constructor
@@ -39,8 +38,9 @@ namespace CountMeUpScottyLibrary
             return challenges.Length;
         }
 
-        public void SolveCurrentChallenge(int attempt)
+        public bool SolveCurrentChallenge(int attempt)
         {
+            bool correct = false;
             if (nextChallenge > 0)
             {
                 TimeSpan time = DateTime.Now - startTime;
@@ -51,9 +51,11 @@ namespace CountMeUpScottyLibrary
                 if (challenges[nextChallenge - 1].IsCorrectlySolved())
                 {
                     score = (int)Math.Floor(12000 / time.TotalMilliseconds);       // TODO Make dependant on difficulty
+                    correct = true;
                 }
                 totalPlayerScore.Add(score, time);
             }
+            return correct;
         }
 
         public PlayerScore GetCurrentScore()
