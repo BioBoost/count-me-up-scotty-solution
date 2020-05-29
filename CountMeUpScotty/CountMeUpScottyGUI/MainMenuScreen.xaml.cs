@@ -41,7 +41,6 @@ namespace CountMeUpScottyGUI
         {
             ScoreboardScreen screen = new ScoreboardScreen();
             screen.Show();
-            this.Close();
         }
 
         private void settings_Click(object sender, RoutedEventArgs e)

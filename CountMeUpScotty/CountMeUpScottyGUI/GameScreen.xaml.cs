@@ -17,7 +17,7 @@ namespace CountMeUpScottyGUI
         private int countDownValue = 0;
         private static int TIME_FOR_SOLVING_CHALLENGE = 12;
         private bool playSound = true;
-        private Settings settings;
+        private Settings settings = new Settings();
 
         private SoundPlayer wrongSound = new SoundPlayer(Properties.Resources.wrong);
         private SoundPlayer correctSound = new SoundPlayer(Properties.Resources.correct);
@@ -48,7 +48,7 @@ namespace CountMeUpScottyGUI
         private void StartNewGame()
         {
             Console.WriteLine("Starting new game");
-            game = new Game(player, settings.NumberOfChallenges);
+            game = new Game(player, settings.Difficulty, settings.NumberOfChallenges);
             isGameInProgress = true;
             UpdateStaticGUIControls();
             progressChallenges.Maximum = game.NumberOfChallenges();

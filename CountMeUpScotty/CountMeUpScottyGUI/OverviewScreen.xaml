@@ -7,7 +7,7 @@
         xmlns:CountMeUpScottyLibrary="clr-namespace:CountMeUpScottyLibrary;assembly=CountMeUpScottyLibrary"
         mc:Ignorable="d"
         Title="Count Me Up Scotty"
-        Height="500" Width="700" MinHeight="500" MinWidth="700"
+        Height="700" Width="700" MinHeight="700" MinWidth="700"
         WindowStartupLocation="CenterScreen"
         Background="#002b36" Foreground="#fdf6e3" >
 

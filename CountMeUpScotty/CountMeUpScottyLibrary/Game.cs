@@ -9,9 +9,10 @@ namespace CountMeUpScottyLibrary
     public class Game
     {
         // Constructor
-        public Game(Player player, int numberOfChallenges = 10)
+        public Game(Player player, Difficulty difficulty = Difficulty.NORMAL, int numberOfChallenges = 10)
         {
             totalPlayerScore = new PlayerScore(player);
+            this.difficulty = difficulty;
             CreateChallenges(numberOfChallenges);
         }
 
@@ -46,16 +47,32 @@ namespace CountMeUpScottyLibrary
                 TimeSpan time = DateTime.Now - startTime;
                 Console.WriteLine("Took you " + time.TotalMilliseconds + " milliseconds");
 
-                int score = 0;
                 challenges[nextChallenge - 1].Solve(attempt);
-                if (challenges[nextChallenge - 1].IsCorrectlySolved())
-                {
-                    score = (int)Math.Floor(12000 / time.TotalMilliseconds);       // TODO Make dependant on difficulty
-                    correct = true;
-                }
-                totalPlayerScore.Add(score, time);
+                correct = challenges[nextChallenge - 1].IsCorrectlySolved();
+
+                totalPlayerScore.Add(DetermineScore(time, correct), time);
             }
             return correct;
+        }
+
+        private int DetermineScore(TimeSpan time, bool isCorrect) 
+        {
+            if (!isCorrect)
+            {
+                return 0;
+            }
+            else
+            {
+                double multiplier = 1;
+                if (difficulty == Difficulty.EASY)
+                {
+                    multiplier = 0.5;
+                } else if (difficulty == Difficulty.HARD)
+                {
+                    multiplier = 2;
+                }
+                return (int)Math.Floor(multiplier * 12000 / time.TotalMilliseconds);
+            }
         }
 
         public PlayerScore GetCurrentScore()
@@ -96,13 +113,32 @@ namespace CountMeUpScottyLibrary
 
         // Private Methods
 
-        // TODO Should depend on the difficulty
         private void CreateChallenges(int numberOfChallenges)
         {
+            int minimumOperand = 0;
+            int maximumOperand = 0;
+            switch (difficulty)
+            {   
+                case Difficulty.EASY:
+                    minimumOperand = 0;
+                    maximumOperand = 20;
+                    break;
+                case Difficulty.NORMAL:
+                    minimumOperand = -20;
+                    maximumOperand = 20;
+                    break;
+                case Difficulty.HARD:
+                    minimumOperand = -50;
+                    maximumOperand = 50;
+                    break;
+                default:
+                    break;
+            }
+
             challenges = new SumChallenge[numberOfChallenges];
             for (int i = 0; i < numberOfChallenges; i++)
             {
-                challenges[i] = new SumChallenge();
+                challenges[i] = new SumChallenge(minimumOperand, maximumOperand);
             }
         }
 
@@ -122,5 +158,6 @@ namespace CountMeUpScottyLibrary
         private DateTime startTime;
         private Scoreboard scoreboard = new Scoreboard();
         private PlayerScore totalPlayerScore = null;
+        private Difficulty difficulty = Difficulty.NORMAL;
     }
 }

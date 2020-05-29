@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CountMeUpScottyGUI"
         mc:Ignorable="d"
         Title="Count Me Up Scotty - Information"
-        Height="500" Width="600" MinHeight="500" MinWidth="600"
+        Height="600" Width="800" MinHeight="600" MinWidth="800"
         WindowStartupLocation="CenterOwner"
         Background="#002b36" Foreground="#fdf6e3" >
 
@@ -38,15 +38,14 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <!--WIP !!! Maybe add screenshots or something of actual game ?-->
-            <!--Multiple Info screens ?-->
+            <!--Multiple Info screens -->
             <TextBlock Grid.Row="0" Style="{StaticResource paragraph}">
                 The difficulty setting determines the difficulty of the generated math challenges.
-                It also has an effect on the scoring. Use the settings icon to change the difficulty level
-                before starting the game.
+                It also has an effect on the scoring. Navigate to the settings window via the main menu
+                and configure the application as you see fit.
             </TextBlock>
 
-            <Image Grid.Row="1" Source="/images/solve-challenge.png"
+            <Image Grid.Row="1" Source="/images/info_settings.png"
                    Margin="20" Stretch="Uniform" />
         </Grid>
 
